@@ -34,7 +34,7 @@ class Profile extends React.Component {
               <Block flex style={styles.profileCard}>
                 <Block middle style={styles.avatarContainer}>
                   <Image
-                    source={{ uri: Images.ProfilePicture }}
+                    source={Images.ProfilePicture}
                     style={styles.avatar}
                   />
                 </Block>
@@ -97,61 +97,14 @@ class Profile extends React.Component {
                 <Block flex>
                   <Block middle style={styles.nameInfo}>
                     <Text bold size={28} color="#32325D">
-                      Jessica Jones, 27
+                      Faissal EL FID, 21
                     </Text>
                     <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
-                      San Francisco, USA
+                      Taza, Morrocco
                     </Text>
                   </Block>
                   <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
                     <Block style={styles.divider} />
-                  </Block>
-                  <Block middle>
-                    <Text
-                      size={16}
-                      color="#525F7F"
-                      style={{ textAlign: "center" }}
-                    >
-                      An artist of considerable range, Jessica name taken by
-                      Melbourne …
-                    </Text>
-                    <Button
-                      color="transparent"
-                      textStyle={{
-                        color: "#233DD2",
-                        fontWeight: "500",
-                        fontSize: 16
-                      }}
-                    >
-                      Show more
-                    </Button>
-                  </Block>
-                  <Block
-                    row
-                    space="between"
-                  >
-                    <Text bold size={16} color="#525F7F" style={{marginTop: 12}}>
-                      Album
-                    </Text>
-                    <Button
-                      small
-                      color="transparent"
-                      textStyle={{ color: "#5E72E4", fontSize: 12, marginLeft: 24 }}
-                    >
-                      View all
-                    </Button>
-                  </Block>
-                  <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
-                    <Block row space="between" style={{ flexWrap: "wrap" }}>
-                      {Images.Viewed.map((img, imgIndex) => (
-                        <Image
-                          source={{ uri: img }}
-                          key={`viewed-${img}`}
-                          resizeMode="cover"
-                          style={styles.thumb}
-                        />
-                      ))}
-                    </Block>
                   </Block>
                 </Block>
               </Block>

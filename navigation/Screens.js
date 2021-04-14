@@ -8,8 +8,10 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Home from "../screens/HomeScreen";
 import Onboarding from "../screens/OnboardingScreen";
 import Login from "../screens/LoginScreen";
-import Profile from "../screens/ProfileScreen";
+import Profile from "../screens/Profile";
+import Planning from "../screens/planning/PlanningScreen";
 import Signup from "../screens/SignupScreen";
+import PlanningReserve from "../screens/planning/PlanningReserveScreen";
 // drawer
 import CustomDrawerContent from "./Menu";
 
@@ -21,6 +23,50 @@ const { width } = Dimensions.get("screen");
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
+
+
+function PlanningStack(props) {
+  return (
+    <Stack.Navigator initialRouteName="Planning" mode="card" headerMode="screen">
+      <Stack.Screen
+        name="Planning"
+        component={Planning}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              // transparent
+              // white
+              options
+              title="Planning"
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          // headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="PlanningReserve"
+        component={PlanningReserve}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              // transparent
+              // white
+              options
+              title="Reserve"
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          // headerTransparent: true
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
 
 
 function ProfileStack(props) {
@@ -40,7 +86,7 @@ function ProfileStack(props) {
             />
           ),
           cardStyle: { backgroundColor: "#FFFFFF" },
-          headerTransparent: true
+          // headerTransparent: true
         }}
       />
     </Stack.Navigator>
@@ -58,7 +104,7 @@ function HomeStack(props) {
             <Header
               title="Home"
               search
-              options
+              // options
               navigation={navigation}
               scene={scene}
             />
@@ -131,6 +177,7 @@ function AppStack(props) {
       initialRouteName="Home"
     >
       <Drawer.Screen name="Home" component={HomeStack} />
+      <Drawer.Screen name="Planning" component={PlanningStack} />
       <Drawer.Screen name="Profile" component={ProfileStack} />
     </Drawer.Navigator>
   );

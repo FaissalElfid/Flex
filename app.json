@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Argon FREE React Native",
-    "slug": "argon-free-react-native",
+    "name": "FLEX",
+    "slug": "The best solux to flex",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -11,8 +11,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "cover",
+      "image": "./assets/Logo.png",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -24,6 +23,6 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "Argon React Native, based on Argon Design System. Coded by Creative Tim"
+    "description": "FLEX React Native, based on Argon Design System."
   }
 }

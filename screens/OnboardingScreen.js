@@ -67,7 +67,7 @@ class OnboardingScreen extends React.Component {
         {
           backgroundColor: '#a6e4d0',
           image: <Image source={require('../assets/onboarding-img1.png')} />,
-          title: 'Connect to the World',
+          title: 'Be open to the World',
           subtitle: 'A New Way To Connect With The World',
         },
         {
@@ -95,5 +95,10 @@ const styles = StyleSheet.create({
     flex: 1, 
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  onboeading1:{
+    height: 200,
+    width: 200,
+    resizeMode: 'cover',
   }
 });

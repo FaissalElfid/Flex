@@ -1,16 +1,16 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Platform, StyleSheet} from 'react-native';
 
-const ProfileScreen = ({navigation}) => {
+const PlanningScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Profile</Text>
+      <Text style={styles.text}>Planning</Text>
     </View>
   );
 };
 
-export default ProfileScreen;
+export default PlanningScreen;
 
 const styles = StyleSheet.create({
   container: {
