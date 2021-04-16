@@ -31,4 +31,6 @@ class IconExtra extends React.Component {
   }
 }
 
+//https://oblador.github.io/react-native-vector-icons/
+
 export default IconExtra;

@@ -19,24 +19,49 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : argonTheme.COLORS.PRIMARY}
           />
         );
-      case "Planning":
+      case "My Planning":
         return (
           <Icon
             name="calendar-date"
             family="ArgonExtra"
-            size={14}
+            size={18}
+            color={focused ? "white" : argonTheme.COLORS.INFO}
+          />
+        );
+        case "Students Absences Table":
+        return (
+          <Icon
+            name="deleteusergroup"
+            family="AntDesign"
+            size={22}
             color={focused ? "white" : argonTheme.COLORS.WARNING}
           />
         );
         case "Profile":
         return (
           <Icon
-            name="hat-3"
-            family="ArgonExtra"
-            size={14}
+            name="user"
+            family="EvilIcons"
+            size={20}
             color={focused ? "white" : argonTheme.COLORS.BLACK}
           />
         );
+        case "Rooms Schedule":
+        return (
+          <Icon
+            name="meeting-room"
+            family="MaterialIcons"
+            size={22}
+            color={focused ? "white" : argonTheme.COLORS.BUTTON_COLOR}
+          />
+        );
+        case "My Profile":
+        return (<Icon
+          name="user"
+          family="EvilIcons"
+          size={25}
+          color={focused ? "white" : "rgba(0,0,0,0.5)"}
+        />);
       case "Getting Started":
         return (<Icon
           name="spaceship"
@@ -64,9 +89,7 @@ class DrawerItem extends React.Component {
         style={{ height: 60 }}
         onPress={() =>
           title == "Getting Started"
-            ? Linking.openURL(
-                "https://demos.creative-tim.com/argon-pro-react-native/docs/"
-              ).catch(err => console.error("An error occurred", err))
+            ? navigation.navigate("Onboarding")
             : navigation.navigate(title)
         }
       >

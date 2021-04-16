@@ -126,13 +126,13 @@ class Header extends React.Component {
       <Block row style={styles.options}>
         <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Planning')}>
           <Block row middle>
-            <Icon name="calendar-date" family="ArgonExtra" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON} />
+            <Icon  name="profile" family="AntDesign" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON} />
             <Text size={16} style={styles.tabTitle}>{optionLeft || 'Show'}</Text>
           </Block>
         </Button>
-        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('PlanningReserve')}>
+        <Button shadowless  style={styles.tab} onPress={() => navigation.navigate('PlanningReserve')}>
           <Block row middle>
-            <Icon size={16} name="g-check" family="ArgonExtra" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON}/>
+            <Icon size={16}  name="calendar-date" family="ArgonExtra" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON}/>
             <Text size={16} style={styles.tabTitle}>{optionRight || 'Reserve'}</Text>
           </Block>
         </Button>

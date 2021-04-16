@@ -12,6 +12,8 @@ import Profile from "../screens/Profile";
 import Planning from "../screens/planning/PlanningScreen";
 import Signup from "../screens/SignupScreen";
 import PlanningReserve from "../screens/planning/PlanningReserveScreen";
+import roomSchedule from "../screens/roomSchedule/ShowRoomScheduleScreen";
+import studentsAbsences from "../screens/students/ChooseBranchScreen";
 // drawer
 import CustomDrawerContent from "./Menu";
 
@@ -69,6 +71,28 @@ function PlanningStack(props) {
 }
 
 
+function showRoomScheduleStack(props) {
+  return (
+    <Stack.Navigator initialRouteName="Rooms Schedule" mode="card" headerMode="screen">
+      <Stack.Screen
+        name="Rooms Schedule"
+        component={roomSchedule}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title="Rooms Schedule"
+              search
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          // headerTransparent: true
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
 function ProfileStack(props) {
   return (
     <Stack.Navigator initialRouteName="Profile" mode="card" headerMode="screen">
@@ -80,7 +104,29 @@ function ProfileStack(props) {
             <Header
               transparent
               white
-              title="Profile"
+              title="My Profile"
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          // headerTransparent: true
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+function StudentsStack(props) {
+  return (
+    <Stack.Navigator initialRouteName="Students Absences Table" mode="card" headerMode="screen">
+      <Stack.Screen
+        name="Students Absences Table"
+        component={studentsAbsences}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+            search
+              title="Students Absences Table"
               navigation={navigation}
               scene={scene}
             />
@@ -177,9 +223,12 @@ function AppStack(props) {
       initialRouteName="Home"
     >
       <Drawer.Screen name="Home" component={HomeStack} />
-      <Drawer.Screen name="Planning" component={PlanningStack} />
-      <Drawer.Screen name="Profile" component={ProfileStack} />
+      <Drawer.Screen name="Rooms Schedule" component={showRoomScheduleStack} /> 
+      <Drawer.Screen name="Students Absences Table" component={StudentsStack} />
+      <Drawer.Screen name="My Planning" component={PlanningStack} /> 
+      <Drawer.Screen name="My Profile" component={ProfileStack} />
     </Drawer.Navigator>
   );
 }
 
+// roomSchedule added but not tested

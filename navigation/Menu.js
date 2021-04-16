@@ -13,9 +13,10 @@ import { DrawerItem as DrawerCustomItem } from '../components';
 function CustomDrawerContent({ drawerPosition, navigation, profile, focused, state, ...rest }) {
   const insets = useSafeArea();
   const screens = [
-    "Home", 
-    "Planning",
-    "Profile",
+    "Home",
+    "Rooms Schedule",
+    "Students Absences Table", 
+    "My Planning",
   ];
   return (
     <Block
@@ -38,6 +39,12 @@ function CustomDrawerContent({ drawerPosition, navigation, profile, focused, sta
               );
             })}
             <Block flex style={{ marginTop: 24, marginVertical: 8, paddingHorizontal: 8 }}>
+              <Block style={{ borderColor: "rgba(0,0,0,0.2)", width: '100%', borderWidth: StyleSheet.hairlineWidth }}/>
+              <Text color="#8898AA" style={{ marginTop: 16, marginLeft: 8 }}>Profile</Text>
+            </Block>
+            <DrawerCustomItem title="My Profile" navigation={navigation} />
+
+            <Block flex style={{ marginTop: 40, marginVertical: 8, paddingHorizontal: 8 }}>
               <Block style={{ borderColor: "rgba(0,0,0,0.2)", width: '100%', borderWidth: StyleSheet.hairlineWidth }}/>
               <Text color="#8898AA" style={{ marginTop: 16, marginLeft: 8 }}>DOCUMENTATION</Text>
             </Block>
