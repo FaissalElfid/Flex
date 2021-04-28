@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, Dimensions,FlatList, ScrollView} from 'react-native';
 import { Block, theme } from 'galio-framework';
 
 import { Card } from '../../components';
@@ -10,19 +10,16 @@ const PlanningScreen = ({navigation}) => {
 
   return (
     <Block flex center style={styles.home}>
-        <ScrollView
+        <FlatList
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.articles}>
+        contentContainerStyle={styles.articles}
+        data={articles}
+        keyExtractor={(item) => item.name}
+        renderItem={({item}) => 
         <Block flex>
-          <Card item={articles[0]} horizontal  />
-          {/* <Block flex row>
-            <Card item={articles[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Card item={articles[2]} />
-          </Block> */}
-          <Card item={articles[3]} horizontal />
-          <Card item={articles[4]} full />
-        </Block>
-      </ScrollView>
+          <Card item={item} />
+        </Block>}
+        />
     </Block>
   );
 };

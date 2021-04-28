@@ -9,7 +9,8 @@ import { argonTheme } from '../constants';
 
 class Card extends React.Component {
   render() {
-    const { navigation, item, horizontal, full, style, ctaColor, imageStyle } = this.props;
+    const { navigation, item, full, style, ctaColor, imageStyle } = this.props;
+    const horizontal = item.horizontal;
     
     const imageStyles = [
       full ? styles.fullImage : styles.horizontalImage,
@@ -17,18 +18,18 @@ class Card extends React.Component {
     ];
     const cardContainer = [styles.card, styles.shadow, style];
     const imgContainer = [styles.imageContainer,
-      horizontal ? styles.horizontalStyles : styles.verticalStyles,
+      horizontal ? styles.verticalStyles : styles.horizontalStyles ,
       styles.shadow
     ];
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
-        <TouchableWithoutFeedback onPress={() => console.log('Pro')}>
+        <TouchableWithoutFeedback onPress={() => console.log(item.name)}>
           <Block flex style={imgContainer}>
             <Image source={{uri: item.image}} style={imageStyles} />
           </Block>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => console.log('Pro')}>
+        <TouchableWithoutFeedback onPress={() => console.log(item.name)}>
           <Block flex space="between" style={styles.cardDescription}>
               <Text size={15} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.name}</Text>
               <Text size={12} style={styles.cardTitle}>{item.description}</Text>
