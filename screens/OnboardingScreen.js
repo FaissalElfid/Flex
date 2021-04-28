@@ -65,25 +65,26 @@ class OnboardingScreen extends React.Component {
       onDone={() => this.props.navigation.navigate("Login")}
       pages={[
         {
-          backgroundColor: '#a6e4d0',
-          image: <Image source={require('../assets/onboarding-img1.png')} />,
+          backgroundColor: '#fdeb93',
+          image: <Image style={styles.image1} source={require('../assets/onboardingTest.png')} />,
           title: 'Be open to the World',
-          subtitle: 'A New Way To Connect With The World',
+          subtitle: 'A New Way To Open your doors to The World',
         },
         {
-          backgroundColor: '#fdeb93',
-          image: <Image source={require('../assets/onboarding-img2.png')} />,
-          title: 'Share Your Favorites',
-          subtitle: 'Share Your Thoughts With Similar Kind of People',
+          backgroundColor: '#a6e4d0',
+          image: <Image style={styles.image3} source={require('../assets/onboarding-img3.png')} />,
+          title: 'Open your doors',
+          subtitle: "Waiting insistently in front of a tightly closed door is unfair to all of the open doors! Give a chance to the open doors!",
         },
         {
           backgroundColor: '#e9bcbe',
-          image: <Image source={require('../assets/onboarding-img3.png')} />,
-          title: 'Become The Star',
-          subtitle: "Let The Spot Light Capture You",
+          image: <Image style={styles.image2} source={require('../assets/onboarding-img2.png')} />,
+          title: 'Don\'t loose focus',
+          subtitle: 'Stay focused, go after your dreams and let your doors open themselves.',
         },
       ]}
     />
+    // A classroom is like a parachute. It doesn't work if it is not open.
   );
 };}
   
@@ -95,6 +96,18 @@ const styles = StyleSheet.create({
     flex: 1, 
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  image1:{
+    width: 385,
+    height: 240,
+  },
+  image2:{
+    width: 385,
+    height: 240,
+  },
+  image3:{
+    width: 450,
+    height: 290,
   },
   onboeading1:{
     height: 200,

@@ -1,29 +1,40 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Platform, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, ScrollView} from 'react-native';
+import { Block, theme } from 'galio-framework';
+
+import { Card } from '../../components';
+import articles from '../../constants/articles';
+const { width } = Dimensions.get('screen');
 
 const PlanningScreen = ({navigation}) => {
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Show rooms</Text>
-    </View>
+    <Block flex center style={styles.home}>
+        <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.articles}>
+        <Block flex>
+          <Card item={articles[0]} horizontal  />
+          {/* <Block flex row>
+            <Card item={articles[1]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Card item={articles[2]} />
+          </Block> */}
+          <Card item={articles[3]} horizontal />
+          <Card item={articles[4]} full />
+        </Block>
+      </ScrollView>
+    </Block>
   );
 };
 
 export default PlanningScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#f9fafd',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
+  home: {
+    width: width,    
   },
-  text: {
-    fontFamily: 'Kufam-SemiBoldItalic',
-    fontSize: 28,
-    marginBottom: 90,
-    color: '#051d5f',
+  articles: {
+    width: width - theme.SIZES.BASE * 2,
+    paddingVertical: theme.SIZES.BASE,
   },
 });

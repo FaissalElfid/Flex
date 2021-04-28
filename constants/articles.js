@@ -1,29 +1,29 @@
 export default [
   {
-    title: 'Ice cream is made with carrageenan …',
-    image: 'https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
-    cta: 'View article', 
+    description: 'please click to view the room\'s schedule',
+    image: 'https://media.istockphoto.com/photos/school-classroom-in-blur-background-without-young-student-blurry-view-picture-id959622488?s=612x612',
+    name: 'Room I1', 
     horizontal: true
   },
   {
-    title: 'Is makeup one of your daily esse …',
-    image: 'https://images.unsplash.com/photo-1519368358672-25b03afee3bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2004&q=80',
-    cta: 'View article'
+    description: 'please click to view the room\'s schedule',
+    image: 'https://media.istockphoto.com/photos/school-classroom-in-blur-background-without-young-student-blurry-view-picture-id959622488?s=612x612',
+    name: 'Room I2'
   },
   {
-    title: 'Coffee is more than just a drink: It’s …',
-    image: 'https://images.unsplash.com/photo-1500522144261-ea64433bbe27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80',
-    cta: 'View article' 
+    description: 'please click to view the room\'s schedule',
+    image: 'https://media.istockphoto.com/photos/school-classroom-in-blur-background-without-young-student-blurry-view-picture-id959622488?s=612x612',
+    name: 'Room I5' 
   },
   {
-    title: 'Fashion is a popular style, especially in …',
-    image: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1326&q=80',
-    cta: 'View article' 
+    description: 'please click to view the room\'s schedule',
+    image: 'https://media.istockphoto.com/photos/school-classroom-in-blur-background-without-young-student-blurry-view-picture-id959622488?s=612x612',
+    name: 'Room I4' 
   },
   {
-    title: 'Argon is a great free UI packag …',
-    image: 'https://images.unsplash.com/photo-1482686115713-0fbcaced6e28?fit=crop&w=1947&q=80',
-    cta: 'View article', 
+    description: 'please click to view the amphitheater\'s schedule',
+    image: 'https://cdn.pixabay.com/photo/2014/12/18/22/39/auditorium-572776_960_720.jpg',
+    name: 'Amphi 3', 
     horizontal: true
   },
 ];
