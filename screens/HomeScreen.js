@@ -1,9 +1,11 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Platform, StyleSheet} from 'react-native';
+//import Calendar from './roomSchedule/CalendarScreen'
 
 const HomeScreen = ({navigation}) => {
 
   return (
+  //  <Calendar/>
     <View style={styles.container}>
       <Text style={styles.text}>Home</Text>
     </View>

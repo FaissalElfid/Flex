@@ -49,13 +49,7 @@ class Profile extends React.Component {
                       small
                       style={{ backgroundColor: argonTheme.COLORS.INFO }}
                     >
-                      CONNECT
-                    </Button>
-                    <Button
-                      small
-                      style={{ backgroundColor: argonTheme.COLORS.DEFAULT }}
-                    >
-                      MESSAGE
+                      Calendar
                     </Button>
                   </Block>
                   <Block row space="between">
@@ -66,9 +60,9 @@ class Profile extends React.Component {
                         color="#525F7F"
                         style={{ marginBottom: 4 }}
                       >
-                        2K
+                        352
                       </Text>
-                      <Text size={12} color={argonTheme.COLORS.TEXT}>Orders</Text>
+                      <Text size={12} color={argonTheme.COLORS.TEXT}>Students</Text>
                     </Block>
                     <Block middle>
                       <Text
@@ -79,7 +73,7 @@ class Profile extends React.Component {
                       >
                         10
                       </Text>
-                      <Text size={12} color={argonTheme.COLORS.TEXT}>Photos</Text>
+                      <Text size={12} color={argonTheme.COLORS.TEXT}>Branches</Text>
                     </Block>
                     <Block middle>
                       <Text
@@ -90,7 +84,7 @@ class Profile extends React.Component {
                       >
                         89
                       </Text>
-                      <Text size={12} color={argonTheme.COLORS.TEXT}>Comments</Text>
+                      <Text size={12} color={argonTheme.COLORS.TEXT}>Courses</Text>
                     </Block>
                   </Block>
                 </Block>
@@ -235,7 +229,7 @@ class Profile extends React.Component {
 const styles = StyleSheet.create({
   profile: {
     marginTop: Platform.OS === "android" ? -HeaderHeight : 0,
-    // marginBottom: -HeaderHeight * 2,
+    marginBottom: -HeaderHeight * 2,
     flex: 1
   },
   profileContainer: {
@@ -249,7 +243,7 @@ const styles = StyleSheet.create({
     height: height / 2
   },
   profileCard: {
-    // position: "relative",
+   position: "relative",
     padding: theme.SIZES.BASE,
     marginHorizontal: theme.SIZES.BASE,
     marginTop: 65,

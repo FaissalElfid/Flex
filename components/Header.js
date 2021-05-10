@@ -112,28 +112,27 @@ class Header extends React.Component {
         right
         color="black"
         style={styles.search}
-        placeholder="What are you looking for?"
+        placeholder="Which room are you looking for?"
         placeholderTextColor={'#8898AA'}
-        onFocus={() => navigation.navigate('Pro')}
         iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="search-zoom-in" family="ArgonExtra" />}
       />
     );
   }
   renderOptions = () => {
-    const { navigation, optionLeft, optionRight } = this.props;
+    // const { navigation, optionLeft, optionRight } = this.props;
 
     return (
       <Block row style={styles.options}>
-        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Planning')}>
+        {/* <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Planning')}>
           <Block row middle>
             <Icon  name="profile" family="AntDesign" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON} />
             <Text size={16} style={styles.tabTitle}>{optionLeft || 'Show'}</Text>
           </Block>
-        </Button>
-        <Button shadowless  style={styles.tab} onPress={() => navigation.navigate('PlanningReserve')}>
+        </Button> */}
+        <Button shadowless  style={styles.tab}>
           <Block row middle>
             <Icon size={16}  name="calendar-date" family="ArgonExtra" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON}/>
-            <Text size={16} style={styles.tabTitle}>{optionRight || 'Reserve'}</Text>
+            <Text size={16} style={styles.tabTitle}>{'Show'}</Text>
           </Block>
         </Button>
       </Block>

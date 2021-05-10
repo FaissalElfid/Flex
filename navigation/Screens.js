@@ -13,6 +13,7 @@ import Planning from "../screens/planning/PlanningScreen";
 import Signup from "../screens/SignupScreen";
 import PlanningReserve from "../screens/planning/PlanningReserveScreen";
 import roomSchedule from "../screens/roomSchedule/ShowRoomScheduleScreen";
+import CalendarScreen from "../screens/roomSchedule/CalendarScreen";
 import studentsAbsences from "../screens/students/ChooseBranchScreen";
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -90,6 +91,25 @@ function showRoomScheduleStack(props) {
           // headerTransparent: true
         }}
       />
+      <Stack.Screen
+        name="CalendarScreen"
+        component={CalendarScreen}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              // transparent
+              // white
+              options
+              back
+              title={"Calendar"}
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          // headerTransparent: true
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -104,6 +124,7 @@ function ProfileStack(props) {
             <Header
               transparent
               white
+              back
               title="My Profile"
               navigation={navigation}
               scene={scene}
