@@ -26,7 +26,7 @@ class Card extends React.Component {
       <Block row={horizontal} card flex style={cardContainer}>
         <TouchableWithoutFeedback  onPress={()=> displayDetailforRoom(item.id)}>
           <Block flex style={imgContainer}>
-            <Image source={{uri: item.image}} style={imageStyles} />
+            {item.uri ? <Image source={require('../assets/branches/irisi.png')}  style={imageStyles} /> :<Image source={{uri: item.image}} style={imageStyles} /> }
           </Block>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback   onPress={()=> displayDetailforRoom(item.id)}>
@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
   horizontalImage: {
     height: 122,
     width: 'auto',
+    resizeMode: 'stretch',
   },
   horizontalStyles: {
     borderTopRightRadius: 0,

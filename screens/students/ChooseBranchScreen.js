@@ -1,29 +1,42 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Platform, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Dimensions,FlatList, ScrollView} from 'react-native';
+import { Block, theme } from 'galio-framework';
+import { Card } from '../../components';
+import rooms from '../../constants/branches';
+const { width } = Dimensions.get('screen');
 
-const PlanningScreen = ({navigation}) => {
-
+class PlanningScreen extends React.Component {
+  _displayDetailforRoom = (idRoom) => {
+    console.log("display room with id"+idRoom)
+    this.props.navigation.navigate("CalendarScreen", {idRoom: idRoom})
+  }
+  render() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Branch</Text>
-    </View>
+    <Block flex center style={styles.home}>
+        <FlatList
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.roomsCards}
+        data={rooms}
+        keyExtractor={(item) => item.name}
+        renderItem={({item}) => 
+        <Block flex>
+          <Card item={item} displayDetailforRoom={this._displayDetailforRoom} />
+        </Block>}
+        />
+    </Block>
   );
 };
+}
+
 
 export default PlanningScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#f9fafd',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
+  home: {
+    width: width,    
   },
-  text: {
-    fontFamily: 'Kufam-SemiBoldItalic',
-    fontSize: 28,
-    marginBottom: 90,
-    color: '#051d5f',
+  roomsCards: {
+    width: width - theme.SIZES.BASE * 2,
+    paddingVertical: theme.SIZES.BASE,
   },
 });

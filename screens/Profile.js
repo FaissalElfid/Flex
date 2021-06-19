@@ -51,6 +51,12 @@ class Profile extends React.Component {
                     >
                       Calendar
                     </Button>
+                    <Button
+                      small
+                      style={{ backgroundColor: argonTheme.COLORS.DEFAULT }}
+                    >
+                      Settings
+                    </Button>
                   </Block>
                   <Block row space="between">
                     <Block middle>

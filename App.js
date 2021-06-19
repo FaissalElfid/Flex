@@ -5,7 +5,8 @@ import { useFonts } from '@use-expo/font';
 import { Asset } from "expo-asset";
 import { Block, GalioProvider } from "galio-framework";
 import { NavigationContainer } from "@react-navigation/native";
-
+import { Provider } from "react-redux";
+import store from "./modules/store";
 // Before rendering any navigation stack
 import { enableScreens } from "react-native-screens";
 enableScreens();
@@ -69,6 +70,7 @@ export default props => {
     );
   } else if(fontsLoaded) {
     return (
+      <Provider store={store}>
       <NavigationContainer>
         <GalioProvider theme={argonTheme}>
           <Block flex>
@@ -76,6 +78,7 @@ export default props => {
           </Block>
         </GalioProvider>
       </NavigationContainer>
+      </Provider>
     );
   } else {
     return null
