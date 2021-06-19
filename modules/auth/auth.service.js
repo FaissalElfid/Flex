@@ -1,11 +1,11 @@
 import axios from "axios";
 import AsyncStorage from '@react-native-community/async-storage';
-const API_URL = "http://192.168.11.105:3000/auth/admin/";
+const API_URL = "http://192.168.11.103:3000/auth/admin/";
 
 class AuthService {
   login(emailObj, passwordObj) {
     return axios
-      .post("http://192.168.11.105:3000/auth/admin/login/", { email: emailObj, password: passwordObj })
+      .post("http://192.168.11.103:3000/auth/admin/login/", { email: emailObj, password: passwordObj })
       .then((response) => {
         console.log("then"+response)
         if (response.data.accessToken) {
@@ -15,11 +15,11 @@ class AuthService {
         return response.data;
       });
   }
-  updatePassword(emailObj, newPassword){
-    console.log(emailObj)
-    console.log(passwordObj)
+  updatePassword(newPasswordObj, oldPasswordObj){
+    // console.log(emailObj)
+    // console.log(passwordObj)
     return axios
-      .post("http://192.168.11.105:3000/auth/admin/update-password/", { email: emailObj, password: passwordObj })
+      .post("http://192.168.11.103:3000/auth/admin/update-password/", { newPassword: newPasswordObj, oldPassword: oldPasswordObj }, { headers: authHeader() } )
       .then((response) => {
         console.log("then"+response)
         if (response.data.accessToken) {
