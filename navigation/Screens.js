@@ -6,6 +6,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 // import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // screens
 import Home from "../screens/HomeScreen";
+import ActivityIndicator from "../screens/ActivityIndicatorScreen";
+
 import Onboarding from "../screens/OnboardingScreen";
 import Login from "../screens/LoginScreen";
 import Profile from "../screens/Profile";
@@ -186,6 +188,13 @@ function HomeStack(props) {
 export default function OnboardingStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="none">
+      <Stack.Screen
+        name="ActivityIndicator"
+        component={ActivityIndicator}
+        option={{
+          headerTransparent: true
+        }}
+      />
       <Stack.Screen
         name="Onboarding"
         component={Onboarding}

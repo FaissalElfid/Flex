@@ -10,7 +10,9 @@
   import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGOUT
+    LOGOUT,
+    PASSWORD_CHANGED_SUCCESS,
+    PASSWORD_CHANGED_FAIL
   } from "./constants";
   
   import AuthService from "./auth.service";
@@ -19,7 +21,7 @@
   export const login = (username, password) => (dispatch) => {
     return AuthService.login(username, password).then(
       (data) => {
-        console.log(data)
+        // console.log(data)
         dispatch({
           type: LOGIN_SUCCESS,
           payload: { user: data },
@@ -40,6 +42,26 @@
           type: LOGIN_FAIL,
         });
   
+        return Promise.reject();
+      }
+    );
+  };
+
+  export const updatePassword = (oldPassword, newPassword) => (dispatch) => {
+    return AuthService.updatePassword(oldPassword, newPassword).then(
+      (data) => {
+        console.log(data)
+        dispatch({
+          type: PASSWORD_CHANGED_SUCCESS,
+          payload: { user: data },
+        });
+        return Promise.resolve();
+      },
+      (error) => {
+        console.log(error)
+        dispatch({
+          type: PASSWORD_CHANGED_FAIL,
+        });
         return Promise.reject();
       }
     );

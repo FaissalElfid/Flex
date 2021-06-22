@@ -2,28 +2,86 @@ import React from 'react';
 import {View, Text, TouchableOpacity, Platform, StyleSheet} from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
+import { updatePassword } from "../modules/auth/actions";
+import { connect } from "react-redux";
 
 class SignupScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.onChangeOldPassword = this.onChangeOldPassword.bind(this);
+    this.onChangeNewPassword = this.onChangeNewPassword.bind(this);
+    this.confirmNewPassword = this.onChangeConfirmNewPassword.bind(this);
+
+    this.state = {
+      oldPassword: "",
+      newPassword: "",
+      confirmNewPassword: "",
+      loading: false,
+    };
+  }
+  onChangeOldPassword(text) {
+    this.setState({
+      oldPassword: text,
+    });
+  }
+  onChangeNewPassword(text) {
+    this.setState({
+      newPassword: text,
+    });
+  }
+  onChangeConfirmNewPassword(text) {
+    this.setState({
+      confirmNewPassword: text,
+    });
+  }
+  handlePasswordChange() {
+    this.setState({
+      loading: true,
+    });
+    const { dispatch } = this.props;
+      dispatch(updatePassword(this.state.oldPassword, this.state.newPassword))
+        .then(() => {
+          console.log("changing done succefuly")
+          this.props.navigation.navigate("App")
+        })
+        .catch(() => {
+          console.log("A problem with the dispatch")
+          this.setState({
+            loading: false
+          });
+        });
+  }
   render(){
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Change your password</Text>
 
-      <FormInput
+      {/* <FormInput
         placeholderText="Email"
         iconType="user"
         keyboardType="email-address"
         autoCapitalize="none"
         autoCorrect={false}
-      />
+      /> */}
 
       <FormInput
+        value={this.state.oldPassword}
+        onChangeText={(text) => this.onChangeOldPassword(text)}
+        placeholderText="Old Password"
+        iconType="user"
+        secureTextEntry={true}
+      />
+      <FormInput
+        value={this.state.newPassword}
+        onChangeText={(text) => this.onChangeNewPassword(text)}
         placeholderText="New Password"
         iconType="lock"
         secureTextEntry={true}
       />
-
       <FormInput
+        value={this.state.confirmNewPassword}
+        onChangeText={(text) => this.onChangeConfirmNewPassword(text)}
         placeholderText="Confirm New Password"
         iconType="lock"
         secureTextEntry={true}
@@ -31,7 +89,7 @@ class SignupScreen extends React.Component {
 
       <FormButton
         buttonTitle="Sign Up"
-        onPress={() => this.props.navigation.navigate("App")}
+        onPress={this.handlePasswordChange}
       />
 
       <View style={styles.textPrivate}>
@@ -49,37 +107,23 @@ class SignupScreen extends React.Component {
         </Text>
       </View>
 
-      {/* {Platform.OS === 'android' ? (
-        <View>
-          <SocialButton
-            buttonTitle="Sign Up with Facebook"
-            btnType="facebook"
-            color="#4867aa"
-            backgroundColor="#e6eaf4"
-            onPress={() => {}}
-          />
-    
-          <SocialButton
-            buttonTitle="Sign Up with Google"
-            btnType="google"
-            color="#de4d41"
-            backgroundColor="#f5e7ea"
-            onPress={() => {}}
-          />
-        </View>
-      ) : null} */}
-
       <TouchableOpacity
         style={styles.navButton}
         onPress={() => navigation.navigate('Login')}>
-        <Text style={styles.navButtonText}>Have an account? Sign In</Text>
+        <Text style={styles.navButtonText}>Already Changed ?</Text>
       </TouchableOpacity>
     </View>
   );
     }
 };
 
-export default SignupScreen;
+function mapStateToProps(state) {
+  const { isLoggedIn } = state.auth;
+  return {
+    isLoggedIn
+  };
+}
+export default connect(mapStateToProps)(SignupScreen);
 
 const styles = StyleSheet.create({
   container: {

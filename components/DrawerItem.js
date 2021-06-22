@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Linking } from "react-native";
 import { Block, Text, theme } from "galio-framework";
+import AsyncStorage from '@react-native-community/async-storage';
 
 import Icon from "./Icon";
 import argonTheme from "../constants/Theme";
@@ -55,6 +56,15 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : argonTheme.COLORS.BUTTON_COLOR}
           />
         );
+        case "Log Out":
+        return (
+          <Icon
+            name="logout"
+            family="SimpleLineIcons"
+            size={22}
+            color={focused ? "white" : argonTheme.COLORS.ERROR}
+          />
+        );
         case "My Profile":
         return (<Icon
           name="user"
@@ -87,10 +97,18 @@ class DrawerItem extends React.Component {
     return (
       <TouchableOpacity
         style={{ height: 60 }}
-        onPress={() =>
-          title == "Getting Started"
+        onPress={async () =>{
+          if (title == "Getting Started"){
+            navigation.navigate("Onboarding")
+          } else if(title == "Log Out"){
+            await AsyncStorage.removeItem('userToken', (err) => console.log(err))
+            navigation.navigate("Login")
+          }else{
+            title == "Getting Started"
             ? navigation.navigate("Onboarding")
             : navigation.navigate(title)
+          }
+        }
         }
       >
         <Block flex row style={containerStyles}>

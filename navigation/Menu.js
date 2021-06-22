@@ -43,6 +43,7 @@ function CustomDrawerContent({ drawerPosition, navigation, profile, focused, sta
               <Text color="#8898AA" style={{ marginTop: 16, marginLeft: 8 }}>Profile</Text>
             </Block>
             <DrawerCustomItem title="My Profile" navigation={navigation} />
+            <DrawerCustomItem title="Log Out" navigation={navigation}/>
 
             <Block flex style={{ marginTop: 40, marginVertical: 8, paddingHorizontal: 8 }}>
               <Block style={{ borderColor: "rgba(0,0,0,0.2)", width: '100%', borderWidth: StyleSheet.hairlineWidth }}/>

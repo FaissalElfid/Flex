@@ -15,6 +15,8 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
+    PASSWORD_CHANGED_FAIL,
+    PASSWORD_CHANGED_SUCCESS
   } from "./constants";
   import AsyncStorage from '@react-native-community/async-storage';
   
@@ -46,6 +48,19 @@ import {
           isLoggedIn: false,
           user: null,
         };
+      case PASSWORD_CHANGED_SUCCESS:
+        return {
+          ...state,
+          isLoggedIn: true,
+          user: payload.user,
+        };
+        case PASSWORD_CHANGED_FAIL:
+        return {
+          ...state,
+          isLoggedIn: false,
+          user: null,
+        };
+        
       default:
         return state;
     }

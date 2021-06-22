@@ -7,6 +7,7 @@ import {
   Image
 } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const Dots = ({selected}) => {
   let backgroundColor;
@@ -54,6 +55,18 @@ const Done = ({...props}) => (
 
 
 class OnboardingScreen extends React.Component {
+  constructor(props){
+    super(props); 
+    this.redirect = this.redirect.bind(this);
+  }
+  async redirect() {
+    const token = await AsyncStorage.getItem("userToken");
+    if(token){
+      this.props.navigation.navigate("App")
+    }else{
+      this.props.navigation.navigate("Login")
+    }
+  }
   render(){
     return (
       <Onboarding
@@ -61,8 +74,8 @@ class OnboardingScreen extends React.Component {
       NextButtonComponent={Next}
       DoneButtonComponent={Done}
       DotComponent={Dots}
-      onSkip={() => this.props.navigation.replace("Login")}
-      onDone={() => this.props.navigation.navigate("Login")}
+      onSkip={() => this.redirect()}
+      onDone={() => this.redirect()}
       pages={[
         {
           backgroundColor: '#fdeb93',
