@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { login } from "../modules/auth/actions";
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class LoginScreen extends React.Component {
   constructor(props) {
@@ -44,9 +45,14 @@ class LoginScreen extends React.Component {
     const { dispatch } = this.props;
     console.log("email :" +this.state.username+ " password : "+this.state.password)
       dispatch(login(this.state.username, this.state.password))
-        .then(() => {
+        .then(async () => {
           console.log("Login done succefuly")
-          this.props.navigation.navigate("Signup")
+          const firstTime = await AsyncStorage.getItem("firstLoginDone")
+          if(firstTime){
+            this.props.navigation.navigate("App")
+          }else{
+            this.props.navigation.navigate("Signup")
+          }
         })
         .catch(() => {
           console.log("A problem with the dispatch")

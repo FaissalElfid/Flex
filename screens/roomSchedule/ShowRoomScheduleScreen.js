@@ -4,11 +4,34 @@ import { Block, theme } from 'galio-framework';
 import { Card } from '../../components';
 import rooms from '../../constants/articles';
 const { width } = Dimensions.get('screen');
+import { getRooms } from "../../modules/rooms/actions";
+import { connect } from "react-redux";
 
 class PlanningScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.getRoomsConsole = this.getRoomsConsole.bind(this);
+  }
+  getRoomsConsole(){
+    this.setState({
+      loading: true,
+    });
+    const { dispatch } = this.props;
+      dispatch(getRooms())
+        .then((data) => {
+          console.log(data)
+        })
+        .catch(() => {
+          console.log("A problem with the dispatch")
+        });
+  }
   _displayDetailforRoom = (idRoom) => {
     console.log("display room with id"+idRoom)
     this.props.navigation.navigate("CalendarScreen", {idRoom: idRoom})
+  }
+  componentDidMount(){
+    console.log("component dit mount")
+    this.getRoomsConsole
   }
   render() {
   return (
@@ -20,16 +43,22 @@ class PlanningScreen extends React.Component {
         keyExtractor={(item) => item.name}
         renderItem={({item}) => 
         <Block flex>
-          <Card item={item} displayDetailforRoom={this._displayDetailforRoom} />
+          {/* <Card item={item} displayDetailforRoom={this._displayDetailforRoom} /> */}
+          <Card item={item} displayDetailforRoom={this.getRoomsConsole} />
+
         </Block>}
         />
     </Block>
   );
 };
 }
-
-
-export default PlanningScreen;
+function mapStateToProps(state) {
+  const { isLoggedIn } = state.auth;
+  return {
+    isLoggedIn
+  };
+}
+export default connect(mapStateToProps)(PlanningScreen);
 
 const styles = StyleSheet.create({
   home: {

@@ -1,0 +1,2 @@
+export const GET_ROOMS_SUCCESS = "GET_ROOMS_SUCCESS";
+export const GET_ROOMS_FAIL = "GET_ROOMS_FAIL";
