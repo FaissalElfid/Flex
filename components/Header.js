@@ -112,7 +112,8 @@ class Header extends React.Component {
         right
         color="black"
         style={styles.search}
-        placeholder="Which room are you looking for?"
+        // placeholder="Which room are you looking for?"
+        placeholder="What are you looking for?"
         placeholderTextColor={'#8898AA'}
         iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="search-zoom-in" family="ArgonExtra" />}
       />
