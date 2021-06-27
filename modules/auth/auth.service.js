@@ -2,7 +2,7 @@ import axios from "axios";
 import AsyncStorage from '@react-native-community/async-storage';
 import authHeader from "../auth-header";
 
-const API_URL = "http://192.168.11.103:3000/auth/admin/";
+const API_URL = "http://192.168.11.101:3000/auth/admin/";
 class AuthService {
   async login(emailObj, passwordObj) {
     return axios

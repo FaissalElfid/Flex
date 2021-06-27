@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Platform, StyleSheet} from 'react-native';
-
+import {View, Text, StyleSheet} from 'react-native';
+import {PlanningScrren} from '../../components/MyPlanningComponent';
 const PlanningScreen = ({navigation}) => {
 
   return (

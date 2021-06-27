@@ -20,12 +20,11 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
+
     "description": "FLEX React Native, based on Argon Design System.",
     "android": {
-      "package": "com.flex_solux"
+      "package": "com.solux.flex",
+      "versionCode": 1
     }
   }
 }

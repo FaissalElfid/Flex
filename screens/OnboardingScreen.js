@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 import AsyncStorage from '@react-native-community/async-storage';
+import COLORS from "../constants/Theme"
 
 const Dots = ({selected}) => {
   let backgroundColor;
@@ -78,19 +79,19 @@ class OnboardingScreen extends React.Component {
       onDone={() => this.redirect()}
       pages={[
         {
-          backgroundColor: '#fdeb93',
+          backgroundColor: "#F7EFE9",
           image: <Image style={styles.image1} source={require('../assets/onboardingTest.png')} />,
           title: 'Be open to the World',
           subtitle: 'A New Way To Open your doors to The World',
         },
         {
-          backgroundColor: '#a6e4d0',
+          backgroundColor: "#E1D5C9",
           image: <Image style={styles.image3} source={require('../assets/onboarding-img3.png')} />,
           title: 'Open your doors',
           subtitle: "Waiting insistently in front of a tightly closed door is unfair to all of the open doors! Give a chance to the open doors!",
         },
         {
-          backgroundColor: '#e9bcbe',
+          backgroundColor: "#C49450",
           image: <Image style={styles.image2} source={require('../assets/onboarding-img2.png')} />,
           title: 'Don\'t loose focus',
           subtitle: 'Stay focused, go after your dreams and let your doors open themselves.',

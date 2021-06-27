@@ -15,7 +15,8 @@ import Planning from "../screens/planning/PlanningScreen";
 import Signup from "../screens/SignupScreen";
 import PlanningReserve from "../screens/planning/PlanningReserveScreen";
 import roomSchedule from "../screens/roomSchedule/ShowRoomScheduleScreen";
-import CalendarScreen from "../screens/roomSchedule/CalendarScreen";
+import CalendarBranchComponent from "../components/CalendarBranchComponent";
+import CalendarScreen from "../components/CalendarRoomComponent";
 import studentsAbsences from "../screens/students/ChooseBranchScreen";
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -103,7 +104,7 @@ function showRoomScheduleStack(props) {
               // white
               options
               back
-              title={"Calendar"}
+              title={"Room Calendar"}
               navigation={navigation}
               scene={scene}
             />
@@ -150,6 +151,23 @@ function StudentsStack(props) {
             <Header
             search
               title="Students Absences Table"
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          // headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="CalendarBranchComponent"
+        component={CalendarBranchComponent}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              options
+              back
+              title={"Branch Calendar"}
               navigation={navigation}
               scene={scene}
             />

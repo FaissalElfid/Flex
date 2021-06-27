@@ -8,7 +8,7 @@ const { width } = Dimensions.get('screen');
 class PlanningScreen extends React.Component {
   _displayDetailforRoom = (idRoom) => {
     console.log("display room with id"+idRoom)
-    this.props.navigation.navigate("CalendarScreen", {idRoom: idRoom})
+    this.props.navigation.navigate("CalendarBranchComponent", {idRoom: idRoom})
   }
   render() {
   return (

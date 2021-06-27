@@ -11,6 +11,7 @@ import {
 import { connect } from "react-redux";
 import { login } from "../modules/auth/actions";
 import FormInput from '../components/FormInput';
+import COLORS from "../constants/Theme";
 import FormButton from '../components/FormButton';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -22,16 +23,25 @@ class LoginScreen extends React.Component {
     this.onChangePassword = this.onChangePassword.bind(this);
 
     this.state = {
-      username: "",
+      email: "",
       password: "",
       loading: false,
+      errorMessageState: "",
+      errorState: false
     };
   }
   onChangeUsername(text) {
-    console.log(this.state.username)
-    this.setState({
-      username: text,
-    });
+      let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+      if (reg.test(text) === false) {
+        this.setState({ email: text })
+        this.setState({ errorState: true })
+        this.setState({ errorMessageState: 'Email incorrect !' })
+        return false;
+      } else {
+        this.setState({ email: text })
+        this.setState({ errorState: false })
+        console.log("Email is Correct");
+      }
   }
   onChangePassword(e) {
     this.setState({
@@ -43,8 +53,7 @@ class LoginScreen extends React.Component {
       loading: true,
     });
     const { dispatch } = this.props;
-    console.log("email :" +this.state.username+ " password : "+this.state.password)
-      dispatch(login(this.state.username, this.state.password))
+      dispatch(login(this.state.email, this.state.password))
         .then(async () => {
           console.log("Login done succefuly")
           const firstTime = await AsyncStorage.getItem("firstLoginDone")
@@ -55,7 +64,9 @@ class LoginScreen extends React.Component {
           }
         })
         .catch(() => {
-          console.log("A problem with the dispatch")
+          console.log("dispatch problem")
+          this.setState({ errorState: true })
+          this.setState({ errorMessageState: 'Email or Password incorrect !' })
           this.setState({
             loading: false
           });
@@ -87,7 +98,9 @@ render(){
       iconType="lock"
       secureTextEntry={true}
     />
-
+    {this.state.errorState && <View>
+      <Text style={styles.errorMessage}>{this.state.errorMessageState}</Text>
+    </View>}
     <FormButton
       buttonTitle="Sign In"
       //onPress={() => this.props.navigation.navigate("Signup")}
@@ -121,6 +134,9 @@ const styles = StyleSheet.create({
     fontSize: 28,
     marginBottom: 10,
     color: '#051d5f',
+  },
+  errorMessage: {
+    color: COLORS.COLORS.ERROR,
   },
   navButton: {
     marginTop: 15,

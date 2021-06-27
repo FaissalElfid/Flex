@@ -43,9 +43,7 @@ class PlanningScreen extends React.Component {
         keyExtractor={(item) => item.name}
         renderItem={({item}) => 
         <Block flex>
-          {/* <Card item={item} displayDetailforRoom={this._displayDetailforRoom} /> */}
-          <Card item={item} displayDetailforRoom={this.getRoomsConsole} />
-
+          <Card item={item} displayDetailforRoom={this._displayDetailforRoom} />
         </Block>}
         />
     </Block>
