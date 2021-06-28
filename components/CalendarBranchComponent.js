@@ -1,8 +1,26 @@
 import React, {Component} from 'react';
-import {Alert, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {Alert, StyleSheet, Text, View, TouchableOpacity, Modal} from 'react-native';
 import {Agenda} from 'react-native-calendars';
 import rooms from '../constants/branches';
-
+import { DataTable } from 'react-native-paper';
+const students=[
+  {
+      "id": "56456454",
+      "fullName": "faissal elfid",
+      "email": "faissal.elfid@gmail.com",
+      
+    },
+  {
+      "id": "12424345645",
+      "fullName": "Omar BENDOUDOU",
+      "email": "omar@gmail.com",
+    },
+  {
+      "id": "4554545664",
+      "fullName": "Hamid NACIRI",
+      "email": "hamid@gmail.com",
+    }
+]
 const testIDs = {
   menu: {
     CONTAINER: 'menu',
@@ -27,7 +45,6 @@ const testIDs = {
   expandableCalendar: {CONTAINER: 'expandableCalendar'},
   weekCalendar: {CONTAINER: 'weekCalendar'}
 };
-
 export default class AgendaScreen extends Component {
   constructor(props) {
     super(props);
@@ -35,14 +52,54 @@ export default class AgendaScreen extends Component {
     this.state = {
       today: new Date(),
       items: {}, 
+      modalName: '',
+      isVisible: false,
       room: rooms.find(item => item.id === this.props.route.params.idRoom)
     };
   }
+  state = {
+    isVisible: false
+  };
 
+  // hide show modal
+  displayModal(show){
+    this.setState({isVisible: show})
+  }
   render() {
-    console.log("render")
     return (
-      
+    <>
+    <Modal
+            animationType = {"slide"}
+            transparent={false}
+            visible={this.state.isVisible}
+            onRequestClose={() => {
+              console.log('Modal closed.');
+            }}>
+              <Text style = { styles.text }>
+                  {this.state.modalName}</Text>
+                  <DataTable>
+                    <DataTable.Header>
+                      <DataTable.Title>Student Id</DataTable.Title>
+                      <DataTable.Title numeric>Full Name</DataTable.Title>
+                      <DataTable.Title numeric>Email</DataTable.Title>
+                    </DataTable.Header>
+
+                     {
+                      students.map((student, key)=>{
+                        return(
+                            <DataTable.Row>
+                              <DataTable.Cell>{student.id}</DataTable.Cell>
+                              <DataTable.Cell>{student.fullName}</DataTable.Cell>
+                              <DataTable.Cell>{student.email}</DataTable.Cell>
+                            </DataTable.Row>
+                          )
+                      })}
+                  </DataTable>
+                  <Text 
+                style={styles.closeText}
+                onPress={() => {
+                  this.displayModal(!this.state.isVisible);}}>Close</Text>
+          </Modal>
       <Agenda
         testID={testIDs.agenda.CONTAINER}
         items={this.state.items}
@@ -69,6 +126,7 @@ export default class AgendaScreen extends Component {
         //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
         // hideExtraDays={false}
       />
+      </>
     );
   }
 
@@ -82,9 +140,10 @@ export default class AgendaScreen extends Component {
           this.state.items[strTime] = [];
           const numItems = Math.floor(Math.random() * 3 + 1);
           for (let j = 0; j < numItems; j++) {
-            let hour = i + 9
+            let hourStart = j + 9
+            let hourEnd = j + 9
             this.state.items[strTime].push({
-              name: this.state.room.name+' reserved this room from ' + strTime + ' to ' + hour+" h ",
+              name: this.state.room.name+' reserved this room at '+strTime+' from ' + hourStart + ' h to ' + hourEnd+" h ",
               height: Math.max(50, Math.floor(Math.random() * 150))
             });
           }
@@ -105,7 +164,14 @@ export default class AgendaScreen extends Component {
       <TouchableOpacity
         testID={testIDs.agenda.ITEM}
         style={[styles.item, {height: item.height}]}
-        onPress={() => Alert.alert(item.name)}
+        onPress={() => {
+          this.setState({
+            modalName: item.name
+          });
+          this.displayModal(true)
+        }
+        //  Alert.alert(item.name)
+        }
       >
         <Text>{item.name}</Text>
       </TouchableOpacity>
@@ -144,4 +210,20 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 30
   },
+  text: {
+    fontFamily: 'Kufam-SemiBoldItalic',
+    fontSize: 20,
+    margin: 10,
+    marginTop: 40,
+    marginBottom: 50,
+    textAlign: 'center',
+    color: '#051d5f',
+  },
+  closeText: {
+    marginTop: 30,
+    fontSize: 24,
+    color: '#00479e',
+    textAlign: 'center',
+  }
 });
+// https://www.positronx.io/react-native-modal-tutorial-with-examples/

@@ -120,14 +120,14 @@ class Header extends React.Component {
     );
   }
   renderOptions = () => {
-    // const { navigation, optionLeft, optionRight } = this.props;
+    const { navigation, optionLeft, optionRight } = this.props;
 
     return (
       <Block row style={styles.options}>
         {/* <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Planning')}>
           <Block row middle>
             <Icon  name="profile" family="AntDesign" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON} />
-            <Text size={16} style={styles.tabTitle}>{optionLeft || 'Show'}</Text>
+            <Text size={16} style={styles.tabTitle}>{optionLeft || 'Show last events'}</Text>
           </Block>
         </Button> */}
         <Button shadowless  style={styles.tab}>
@@ -136,6 +136,7 @@ class Header extends React.Component {
             <Text size={16} style={styles.tabTitle}>{'Show'}</Text>
           </Block>
         </Button>
+        
       </Block>
     );
   }

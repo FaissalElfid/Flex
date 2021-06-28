@@ -82,7 +82,7 @@ export default class AgendaScreen extends Component {
           this.state.items[strTime] = [];
           const numItems = Math.floor(Math.random() * 3 + 1);
           for (let j = 0; j < numItems; j++) {
-            let hour = i + 9
+            let hour = j + 9
             this.state.items[strTime].push({
               name: this.state.room.name+' reserved for ' + strTime + ' at ' + hour+" h ",
               height: Math.max(50, Math.floor(Math.random() * 150))
