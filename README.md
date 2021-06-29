@@ -83,7 +83,10 @@ Ensuite il faut installer les dépendances:
 ```
 npm install
 ```
-
+Puis il faut changer l'adress de l'api-backend avec son propre adresse local (où le mobile et serveur sont connéctés):
+<br>
+![plot](./assets/screenshots/capture_api_url.jpg)
+<br>
 Une fois les dépendances installées, il ne reste plus qu’à lancer l’application :
 
 ```
