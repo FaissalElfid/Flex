@@ -127,21 +127,21 @@ npm start
 ## Des captures d'écran
 
 * <b>Login</b>
-![](./assets/screenshots/login.jpeg | width=100)
+![plot](./assets/screenshots/login.jpeg)
 
 
 * <b>Home</b>
-![](./assets/screenshots/home.jpeg | width=100)
+![plot](./assets/screenshots/home.jpeg)
 
 * <b>Menu </b>
-![plot](./assets/screenshots/navigation.jpeg | width=100)
+![plot](./assets/screenshots/navigation.jpeg)
 
 * <b>Calendrier des cours </b>
-![plot](./assets/screenshots/calendar.jpeg | width=100)
+![plot](./assets/screenshots/calendar.jpeg)
 
 
 * <b>Branches </b>
-![plot](./assets/screenshots/branches.jpeg | width=100)
+![plot](./assets/screenshots/branches.jpeg)
 
 * <b>Abscent </b>
-![plot](./assets/screenshots/abcent.jpeg | width=100)
+![plot](./assets/screenshots/abcent.jpeg)
