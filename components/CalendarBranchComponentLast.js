@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Alert, StyleSheet, Text, View, TouchableOpacity, Modal} from 'react-native';
 import {Agenda} from 'react-native-calendars';
 import rooms from '../constants/branches';
-import { DataTable } from 'react-native-paper';
 import students from '../constants/students';
+import { DataTable } from 'react-native-paper';
 
 const testIDs = {
   menu: {
@@ -38,7 +38,7 @@ export default class AgendaScreen extends Component {
       items: {}, 
       modalName: '',
       isVisible: false,
-      room: rooms.find(item => item.id === this.props.route.params.idRoom)
+      room: rooms.find(item => item.id === 1)
     };
   }
   state = {
@@ -61,7 +61,9 @@ export default class AgendaScreen extends Component {
             }}>
               <Text style = { styles.text }>
                   {this.state.modalName}</Text>
-                  {/* <DataTable>
+                  <Text style = { styles.text2 }>
+                  List of abscents</Text>
+                  <DataTable>
                     <DataTable.Header>
                       <DataTable.Title>Student Id</DataTable.Title>
                       <DataTable.Title numeric>Full Name</DataTable.Title>
@@ -78,7 +80,7 @@ export default class AgendaScreen extends Component {
                             </DataTable.Row>
                           )
                       })}
-                  </DataTable> */}
+                  </DataTable>
                   <Text 
                 style={styles.closeText}
                 onPress={() => {
@@ -93,9 +95,9 @@ export default class AgendaScreen extends Component {
         renderEmptyDate={this.renderEmptyDate.bind(this)} // bind lie la function avec le context 
         rowHasChanged={this.rowHasChanged.bind(this)}
         pastScrollRange={1}
-        minDate={new Date()}
       // Max amount of months allowed to scroll to the future. Default = 50
         futureScrollRange={1}
+        maxDate={new Date()}
         // markingType={'period'}
         // markedDates={{
         //    '2017-05-08': {textColor: '#43515c'},
@@ -120,7 +122,7 @@ export default class AgendaScreen extends Component {
       
       for (let i = 0; i < 10; i++) {
         
-        const time = this.state.today.getTime() + i * 24 * 60 * 60 * 1000;
+        const time = this.state.today.getTime() - i * 24 * 60 * 60 * 1000;
         const strTime = this.timeToString(time);
         if (!this.state.items[strTime]) {
           this.state.items[strTime] = [];
@@ -201,6 +203,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     margin: 10,
     marginTop: 40,
+    marginBottom: 50,
+    textAlign: 'center',
+    color: '#051d5f',
+  },
+  text2: {
+    fontFamily: 'Kufam-SemiBoldItalic',
+    fontSize: 20,
+    margin: 10,
+    marginTop: 20,
     marginBottom: 50,
     textAlign: 'center',
     color: '#051d5f',

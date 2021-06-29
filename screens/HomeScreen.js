@@ -78,6 +78,7 @@ const HomeScreen = ({navigation}) => {
         navigation.navigate("Students Absences Table");break;
       case 'Log Out':
         await AsyncStorage.removeItem('userToken', (err) => console.log(err))
+        await AsyncStorage.removeItem('firstLoginDone', (err) => console.log(err))
             navigation.navigate("Login");
             break;
       default:

@@ -2,7 +2,7 @@ import axios from "axios";
 import AsyncStorage from '@react-native-community/async-storage';
 import authHeader from "../auth-header";
 
-const API_URL = "http://192.168.11.101:3000/auth/admin/";
+const API_URL = "http://192.168.43.24:3000/auth/admin/";
 class AuthService {
   async login(emailObj, passwordObj) {
     return axios
@@ -10,7 +10,7 @@ class AuthService {
       .then(async (response) => {
           try{
             await AsyncStorage.setItem("userToken", response.data.access_token);// do a multi set
-            await AsyncStorage.setItem("firstLoginDone", JSON.stringify(true));
+            // await AsyncStorage.setItem("firstLoginDone", JSON.stringify(true));
           } catch(err){
             console.log(err)
           }

@@ -16,6 +16,7 @@ import Signup from "../screens/SignupScreen";
 import PlanningReserve from "../screens/planning/PlanningReserveScreen";
 import roomSchedule from "../screens/roomSchedule/ShowRoomScheduleScreen";
 import CalendarBranchComponent from "../components/CalendarBranchComponent";
+import CalendarBranchComponentLast from "../components/CalendarBranchComponentLast";
 import CalendarScreen from "../components/CalendarRoomComponent";
 import studentsAbsences from "../screens/students/ChooseBranchScreen";
 // drawer
@@ -159,6 +160,23 @@ function StudentsStack(props) {
           // headerTransparent: true
         }}
       />
+      <Stack.Screen
+        name="CalendarBranchComponentLast"
+        component={CalendarBranchComponentLast}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              options
+              back
+              title={"Branch past events"}
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          // headerTransparent: true
+        }}
+      />      
       <Stack.Screen
         name="CalendarBranchComponent"
         component={CalendarBranchComponent}

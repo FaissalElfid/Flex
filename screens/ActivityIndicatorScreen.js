@@ -5,8 +5,14 @@ import AsyncStorage from '@react-native-community/async-storage';
 class ActivityIndicatorScreen extends React.Component {
   async componentDidMount(){
     const token = await AsyncStorage.getItem("userToken")
+    // firstLoginDone
+    const firstTime = await AsyncStorage.getItem("firstLoginDone")
     if(token){
-      this.props.navigation.navigate("App")
+      if(firstTime){
+        this.props.navigation.navigate("App")
+      }else{
+        this.props.navigation.navigate("Onboarding")
+      }  
     }else {
       this.props.navigation.navigate("Onboarding")
     }

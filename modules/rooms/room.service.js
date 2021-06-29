@@ -2,7 +2,7 @@ import axios from "axios";
 import authHeader from "../auth-header";
 import AsyncStorage from '@react-native-community/async-storage';
 //import _API_URL from "../../constants/api";
-const API_URL = "http://192.168.137.1:3000/";
+const API_URL = "http://192.168.43.24:3000/";
 
 class RoomService {
   async getPublicContent() {

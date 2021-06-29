@@ -4,6 +4,7 @@ import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { updatePassword } from "../modules/auth/actions";
 import { connect } from "react-redux";
+import AsyncStorage from '@react-native-community/async-storage';
 
 class SignupScreen extends React.Component {
   constructor(props) {
@@ -41,8 +42,9 @@ class SignupScreen extends React.Component {
     });
     const { dispatch } = this.props;
       dispatch(updatePassword(this.state.oldPassword, this.state.newPassword))
-        .then(() => {
+        .then(async () => {
           console.log("changing done succefuly")
+          await AsyncStorage.setItem("firstLoginDone", JSON.stringify(true))
           this.props.navigation.navigate("App")
         })
         .catch(() => {
