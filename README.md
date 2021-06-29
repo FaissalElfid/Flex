@@ -1,5 +1,8 @@
 # Application mobile du système FLEX avec react native
-## Présentation du projet
+## Présentation de FLEX
+FLEX est projet unniversitaire innovant qui s’agit d’un système automatique,
+d’objets interconnectés dont l’objectif est de faciliter l’accès aux salles de
+cours en temps et en heure et de garantir aussi leur sécurité.
 la principale fonctionnalité du système FLEX est sans aucun doute de faciliter l’accès aux salles de cours.
 Parmi les caractéristiques de FLEX, nous pouvons citer :
 * Permettre à la fois un contrôle automatique, commandé d’une salle,
@@ -49,3 +52,40 @@ leur emploi du temps
 fonctionnalités sont citées ci-haut.
 * Une application serveur qui servira comme backend à tout ce qui
 est cité précédemment.
+### Lancer le projet FLEX en local
+## 1. Mise en place de l'application Backend
+Une fois Node.js installé sur votre environnement, vous pouvez récupérer le code de l’application Backend:
+
+```
+git clone https://github.com/AbidarYassine/flex_backEnd
+```
+Ensuite il faut installer les dépendances:
+
+
+```
+npm install
+```
+
+Une fois les dépendances installées, il ne reste plus qu’à lancer l’application :
+
+```
+npm start
+```
+## 2. Créer une base données flex_db (MySQL)
+## 3. Mise en place de l'application mobile
+Une fois React Native installé sur votre environnement, vous pouvez récupérer le code de l’application, disponible sur ce dépôt GitHub.
+
+```
+git clone https://github.com/FaissalElfid/Flex
+```
+Ensuite il faut installer les dépendances:
+
+```
+npm install
+```
+
+Une fois les dépendances installées, il ne reste plus qu’à lancer l’application :
+
+```
+npm start
+```
