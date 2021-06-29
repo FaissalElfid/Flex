@@ -126,22 +126,22 @@ npm start
 
 ## Des captures d'écran
 
-* Login
-![plot](./assets/screenshots/login.jpeg)
+* <b>Login</b>
+![plot](./assets/screenshots/login.jpeg | width=100)
 
 
-* Home
-![plot](./assets/screenshots/home.jpeg)
+* <b>Home</b>
+![plot](./assets/screenshots/home.jpeg | width=100)
 
-* Menu 
-![plot](./assets/screenshots/navigation.jpeg)
+* <b>Menu </b>
+![plot](./assets/screenshots/navigation.jpeg | width=100)
 
-* Calendrier des cours 
-![plot](./assets/screenshots/calendar.jpeg)
+* <b>Calendrier des cours </b>
+![plot](./assets/screenshots/calendar.jpeg | width=100)
 
 
-* Branches 
-![plot](./assets/screenshots/branches.jpeg)
+* <b>Branches </b>
+![plot](./assets/screenshots/branches.jpeg | width=100)
 
-* Abscent 
-![plot](./assets/screenshots/abcent.jpeg)
+* <b>Abscent </b>
+![plot](./assets/screenshots/abcent.jpeg | width=100)
