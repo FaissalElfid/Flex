@@ -21,7 +21,7 @@
   export const login = (username, password) => (dispatch) => {
     return AuthService.login(username, password).then(
       (data) => {
-        // console.log(data)
+        // je modifie le state grace a l'action login_success
         dispatch({
           type: LOGIN_SUCCESS,
           payload: { user: data },
