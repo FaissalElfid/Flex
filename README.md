@@ -127,11 +127,11 @@ npm start
 ## Des captures d'écran
 
 * <b>Login</b>
-![plot](./assets/screenshots/login.jpeg | width=100)
+![](./assets/screenshots/login.jpeg | width=100)
 
 
 * <b>Home</b>
-![plot](./assets/screenshots/home.jpeg | width=100)
+![](./assets/screenshots/home.jpeg | width=100)
 
 * <b>Menu </b>
 ![plot](./assets/screenshots/navigation.jpeg | width=100)
