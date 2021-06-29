@@ -1,4 +1,18 @@
 # Application mobile du système FLEX avec react native
+
+## Table des matières
+1. [Présentation de FLEX](#presentation)
+2. [Stratégie du systéme FLEX](#strategie)
+- 2.a. [Comment ça marche ?](#comment)
+- 2.b. [Objectifs](#Objectifs)
+3. [Lancer le projet FLEX en local](#lancer)
+- 3.a. [Mise en place de l'application Backend](#Backend)
+- 3.b. [Créer une base données flex_db (MySQL)](#bd)
+- 3.c. [Mise en place de l'application mobile](#mobile)
+4. [Des captures d'écran](#screens)
+
+<a name="presentation"></a>
+
 ## Présentation de FLEX
 FLEX est projet unniversitaire innovant qui s’agit d’un système automatique,
 d’objets interconnectés dont l’objectif est de faciliter l’accès aux salles de
@@ -12,7 +26,11 @@ tout en garantissant une ouverture manuelle en cas de panne.
 * Identifier et reconnaitre les différents intervenants à un instant donné afin de leur donner accès à la salle.
 * Aider à l’établissement des listes de présence
 
+<a name="strategie"></a>
+
 ## Stratégie du systéme FLEX
+<a name="comment"></a>
+
 ### Comment ça marche ?
 Et bien voici une description simple des fonctionnalités de FLEX
 * FLEX détecte et identifie les visages des professeurs afin de pouvoir
@@ -36,6 +54,8 @@ autre cours suit juste après ou bien.
 * La porte est à tout moment ouvrable manuellement, par tout individu
 lorsqu’elle n’est pas bloquée, et par un agent de sécurité au cas
 contraire.
+<a name="Objectifs"></a>
+
  ### Objectifs
  Installé pour une salle de classe FLEX devrait être capable de réaliser
 les actions citées ci-haut.
@@ -52,8 +72,13 @@ leur emploi du temps
 fonctionnalités sont citées ci-haut.
 * Une application serveur qui servira comme backend à tout ce qui
 est cité précédemment.
-### Lancer le projet FLEX en local
-## 1. Mise en place de l'application Backend
+
+<a name="lancer"></a>
+
+## Lancer le projet FLEX en local
+<a name="Backend"></a>
+
+### a. Mise en place de l'application Backend
 Une fois Node.js installé sur votre environnement, vous pouvez récupérer le code de l’application Backend:
 
 ```
@@ -71,8 +96,13 @@ Une fois les dépendances installées, il ne reste plus qu’à lancer l’appli
 ```
 npm start
 ```
-## 2. Créer une base données flex_db (MySQL)
-## 3. Mise en place de l'application mobile
+<a name="bd"></a>
+
+### b. Créer une base données flex_db (MySQL)
+<a name="mobile"></a>
+
+
+### c. Mise en place de l'application mobile
 Une fois React Native installé sur votre environnement, vous pouvez récupérer le code de l’application, disponible sur ce dépôt GitHub.
 
 ```
@@ -92,3 +122,26 @@ Une fois les dépendances installées, il ne reste plus qu’à lancer l’appli
 ```
 npm start
 ```
+<a name="screens"></a>
+
+## Des captures d'écran
+
+* Login
+![plot](./assets/screenshots/login.jpeg)
+
+
+* Home
+![plot](./assets/screenshots/home.jpeg)
+
+* Menu 
+![plot](./assets/screenshots/navigation.jpeg)
+
+* Calendrier des cours 
+![plot](./assets/screenshots/calendar.jpeg)
+
+
+* Branches 
+![plot](./assets/screenshots/branches.jpeg)
+
+* Abscent 
+![plot](./assets/screenshots/abcent.jpeg)
